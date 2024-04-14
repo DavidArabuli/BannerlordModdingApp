@@ -1,0 +1,30 @@
+M&B Bannerlord modding tools
+
+the goal is to give user ability to modify
+- unit`s skill stats (like bow skill, riding etc)
+- unit`s inventory (and equipped weapons and armor)
+
+Requires:
+I believe that most work on units can be done in spnpccharacters.xml 
+
+Possible flow:
+reading existing values from game xml file ->
+-> creating data structure to store it -> 
+-> pass data to form ->
+-> render initial values and default inventories ->
+-> gather data from inputs (*mb formdata API?*) ->
+-> pack it for xml-js library, in a JSON form ->
+-> JSON to xml conversion ->
+-> download edited xml.
+
+====
+notes and issues so far:
+
+14.04.2024.
+
+Xml->JSON-xml conversion messes up comments, but 
+overall it works, without major problems. Game is not crashing, and in-game values are updated successfully.
+
+
+====
+

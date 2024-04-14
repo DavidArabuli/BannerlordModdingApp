@@ -8,7 +8,7 @@ import TestXMLToolsConvApp from "./TestXMLToolsConvApp.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   // <TestXMLToolsConvApp />
-  <TestLibConversionApp />
-  // <App />
+  // <TestLibConversionApp />
+  <App />
   // </React.StrictMode>,
 );

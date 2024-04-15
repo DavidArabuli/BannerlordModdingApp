@@ -28,3 +28,9 @@ overall it works, without major problems. Game is not crashing, and in-game valu
 
 ====
 
+15.04.2024
+
+basic structure for skill modification is created, culture divs populated with appropriate unit cards, with access to skills and other unit data.
+
+to do:
+Have to filter units without skills, also filter all the tournament units, smiths etc - all non-hirable units. They are not really needed and only make code convoluted later on.

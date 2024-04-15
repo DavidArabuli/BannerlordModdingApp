@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
-import xmljs from "xml-js";
-
-import "./App.css";
+import React, { useEffect, useState } from "react";
 import RenderNames from "./RenderNames";
 import Form from "./Form";
 import useFetchXML from "./useFetchXML";
+import "./App.css";
 
 function App() {
-  const unitArrayData = useFetchXML();
+  const { unitsArray, loading } = useFetchXML();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <RenderNames unitArrayData={unitArrayData} />
-      <Form />
+      <RenderNames unitArrayData={unitsArray} />
+      <Form unitsArray={unitsArray} />
     </div>
   );
 }

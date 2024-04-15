@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import CultureBlock from "./CultureBlock";
 
-const Form = () => {
+const Form = ({ unitsArray }) => {
+  console.log(unitsArray);
   return (
     <form>
-      <h5>Unit`s name here</h5>
-      <p>Current Athletic skill is ---- Enter new value for skill:</p>
-      <input type="number" placeholder="Enter new value" />
-      <button type="submit">Update</button>
+      <CultureBlock unitsArray={unitsArray} />
     </form>
   );
 };

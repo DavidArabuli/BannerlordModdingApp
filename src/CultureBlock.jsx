@@ -10,15 +10,15 @@ const cultures = [
   "neutral",
 ];
 
-const CultureBlock = ({ unitsArray }) => {
-  console.log(unitsArray);
+const CultureBlock = ({ onlyRelevantUnits }) => {
+  console.log(onlyRelevantUnits);
 
   return (
     <div>
       {cultures.map((culture) => (
         <div key={culture} className={culture}>
           <h5>{culture}</h5>
-          {unitsArray.map((unit) => {
+          {onlyRelevantUnits.map((unit) => {
             if (unit._attributes.culture.includes(culture)) {
               return <UnitCard key={unit._attributes.id} unit={unit} />;
             }

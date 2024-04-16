@@ -1,8 +1,27 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
   text-align: center;
+  box-sizing: border-box;
+}
+.skillBox {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* justify-content: space-between; */
+  align-items: center;
+  align-content: center;
+}
+
+.inputLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+  border: 1px solid blue;
+  text-align: left;
 }
 
 .allUnits {
@@ -10,7 +29,7 @@
   flex-wrap: wrap;
   gap: 4rem;
 }
-.logo {
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -44,4 +63,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */

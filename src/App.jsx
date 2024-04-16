@@ -10,11 +10,22 @@ function App() {
   if (loading) {
     return <div>Loading...</div>;
   }
+  const onlyRelevantUnits = unitsArray.filter((unit) => {
+    if (
+      unit._attributes.occupation === "Soldier" ||
+      unit._attributes.occupation === "Mercenary"
+    ) {
+      if (!unit._attributes.id.includes("militia")) {
+        return true;
+      }
+    }
+    return false;
+  });
 
   return (
     <div>
-      <RenderNames unitArrayData={unitsArray} />
-      <Form unitsArray={unitsArray} />
+      {/* <RenderNames unitArrayData={unitsArray} /> */}
+      <Form onlyRelevantUnits={onlyRelevantUnits} />
     </div>
   );
 }

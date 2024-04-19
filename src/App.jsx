@@ -25,7 +25,7 @@ function App() {
   return (
     <div>
       {/* <RenderNames unitArrayData={unitsArray} /> */}
-      <Form onlyRelevantUnits={onlyRelevantUnits} />
+      <Form onlyRelevantUnits={onlyRelevantUnits} unitsArray={unitsArray} />
     </div>
   );
 }

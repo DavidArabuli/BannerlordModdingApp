@@ -1,4 +1,4 @@
-const handleDownload = () => {
+const handleDownload = (xmlData) => {
   const blob = new Blob([xmlData], { type: "text/xml" });
 
   const url = URL.createObjectURL(blob);
@@ -6,9 +6,11 @@ const handleDownload = () => {
   // Create a download link
   const link = document.createElement("a");
   link.href = url;
-  link.download = "converted_data.xml";
+  link.download = "EDITEDspnpccharacters.xml";
   link.click();
 
   // Clean up
   URL.revokeObjectURL(url);
 };
+
+export default handleDownload;

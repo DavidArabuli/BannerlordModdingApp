@@ -17,7 +17,7 @@ const InputSkill = ({ unit }) => {
         <label>{Athletics?._attributes?.id} :</label>
         <input
           type="text"
-          name="Athletics"
+          name={`${Athletics?._attributes?.id}-${id}`}
           defaultValue={Athletics?._attributes?.value}
           id={id}
           dataset-id={id}
@@ -27,7 +27,7 @@ const InputSkill = ({ unit }) => {
         <label>{Riding?._attributes?.id} :</label>
         <input
           type="text"
-          name="Riding"
+          name={`${Riding?._attributes?.id}-${id}`}
           defaultValue={Riding?._attributes?.value}
           id={id}
         />
@@ -36,7 +36,7 @@ const InputSkill = ({ unit }) => {
         <label>{OneHanded?._attributes?.id} :</label>
         <input
           type="text"
-          name="OneHanded"
+          name={`${OneHanded?._attributes?.id}-${id}`}
           defaultValue={OneHanded?._attributes?.value}
           id={id}
         />
@@ -45,7 +45,7 @@ const InputSkill = ({ unit }) => {
         <label>{TwoHanded?._attributes?.id} :</label>
         <input
           type="text"
-          name="TwoHanded"
+          name={`${TwoHanded?._attributes?.id}-${id}`}
           defaultValue={TwoHanded?._attributes?.value}
           id={id}
         />
@@ -54,7 +54,7 @@ const InputSkill = ({ unit }) => {
         <label>{Polearm?._attributes?.id} :</label>
         <input
           type="text"
-          name="Polearm"
+          name={`${Polearm?._attributes?.id}-${id}`}
           defaultValue={Polearm?._attributes?.value}
           id={id}
         />
@@ -63,7 +63,7 @@ const InputSkill = ({ unit }) => {
         <label>{Bow?._attributes?.id} :</label>
         <input
           type="text"
-          name="Bow"
+          name={`${Bow?._attributes?.id}-${id}`}
           defaultValue={Bow?._attributes?.value}
           id={id}
         />
@@ -72,7 +72,7 @@ const InputSkill = ({ unit }) => {
         <label>{Crossbow?._attributes?.id} :</label>
         <input
           type="text"
-          name="Crossbow"
+          name={`${Crossbow?._attributes?.id}-${id}`}
           defaultValue={Crossbow?._attributes?.value}
           id={id}
         />
@@ -81,7 +81,7 @@ const InputSkill = ({ unit }) => {
         <label>{Throwing?._attributes?.id} :</label>
         <input
           type="text"
-          name="Throwing"
+          name={`${Throwing?._attributes?.id}-${id}`}
           defaultValue={Throwing?._attributes?.value}
           id={id}
         />

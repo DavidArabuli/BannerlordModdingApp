@@ -43,7 +43,7 @@ const Form = ({ onlyRelevantUnits, unitsArray }) => {
     };
     const xml = xmljs.js2xml(xmlData, { compact: true, spaces: 2 });
     console.log(xml);
-    handleDownload(xml);
+    // handleDownload(xml);
   };
 
   return (

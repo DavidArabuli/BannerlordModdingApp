@@ -56,4 +56,8 @@ There are different cases:
 - one way to navigate around it, is to merge shields array with weapons array. 
 - another approach, is to just render pre-defined number of inputs, regardless of what units uses currently, and then insert lacking elements into final XML file. 
 
-Then the question is, what to do with units with multiple equipment sets. Should app check how many sets unit has and edit all of them at once? Or should it render more inputs for this kind of units, or even to be able to create extra equip.sets?
+Then the question is, what to do with units with multiple equipment sets. Should app check how many sets unit has and edit all of them at once? Or should it render more inputs for this kind of units, or even to be able to create extra equip.sets? 
+
+Atm, going to set up logic for changing one set, and working with default item numbers.
+
++++ also, loading time of all the parsing and rendering is becoming noticeable, especially now, when items and their inputs are rendered too. Have to look into it.

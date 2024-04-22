@@ -34,7 +34,7 @@ const ItemInput = ({ unit }) => {
         allInitialItems.push(unitItem);
       });
     }
-    console.log(allInitialItems);
+    // console.log(allInitialItems);
     return allInitialItems;
   };
 

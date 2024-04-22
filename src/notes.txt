@@ -61,3 +61,11 @@ Then the question is, what to do with units with multiple equipment sets. Should
 Atm, going to set up logic for changing one set, and working with default item numbers.
 
 +++ also, loading time of all the parsing and rendering is becoming noticeable, especially now, when items and their inputs are rendered too. Have to look into it.
+
+22.04.2024
+
+At the moment it is possible to change items, but only in one equipment roster. And no way to add new items.
+
+First I have to deal with updating multiple equipment arrays, when there is more than one of them.
+
+Second we will see how viable is to add new item functionality here. Mb it gonna be implemented in desktop version of this app, and not here. 

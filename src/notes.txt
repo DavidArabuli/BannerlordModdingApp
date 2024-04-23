@@ -69,3 +69,30 @@ At the moment it is possible to change items, but only in one equipment roster. 
 First I have to deal with updating multiple equipment arrays, when there is more than one of them.
 
 Second we will see how viable is to add new item functionality here. Mb it gonna be implemented in desktop version of this app, and not here. 
+
++++ It is possible to change items for all eq.rosters that unit has.
+...Loading times even worse now, as all the parsing is becoming "heavier". 
+
+... As for adding items:
+One way to approach it, would be to construct an object in itemInput - with all possible items, then fill only properties that actually exist on unit, to render them as existing items, but we still have to pass all of it, to get all possible inputs, even for empty slots, coz selector input is based on the data passed to it.
+
+Since I already am checking for existing slots on form-submission, checking for extra 2-5 slots on unit is not a big deal, but still, might think of the most efficient solution there...
+
+To make things more difficult, for SOME units, horses and horse harnesses are not even part of EquipmentRoster, instead they are part of EquipmentSet.
+Which means, that there is yet another thing to check and parse. 
+I am starting to think, that I am pushing over the limit of frontend app here, and mb this item adding feature might go to desktop version, but I might want to finish it to see, whether it gonna be acceptable in terms of speed. Atm I haven`t really optimized it. So there is some room for improvement.
+
+23.04.202
+
+Items from all equipmentRosters are rendered and passed to the form.
+Basically, for every unit and every equipment roster it has there is an item object with properties - they are either filled with data, or go as empty string.
+
+Working on inserting item slots into equipmentRosters, when they are not there from the beginning.
+
+Added all the armor arrays and assigned them to appropriate item slots.
+Shields and weapons were merged, since game does not distinguish their slots.
+
+Added skill and item flags to inputs, to pass it to the form procession function, otherwise it becomes too complicated, trying to distinguish skills and items. 
+There must be check, that ensures that if item slot is not present it gets added, but since all of it comes from form - it might mix up with skills, and they are added instead if empty item-slots.
+
+Added Suspense and Lazy, to lazy load Form component. It will load on separate button press, only when it is needed.

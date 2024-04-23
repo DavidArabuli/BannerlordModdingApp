@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
+const Form = lazy(() => import("./Form"));
 import RenderNames from "./RenderNames";
-import Form from "./Form";
+// import Form from "./Form";
 import useFetchXML from "./useFetchXML";
 import "./App.css";
 
 function App() {
+  const [show, setShow] = useState(false);
   const { unitsArray, loading } = useFetchXML();
 
   if (loading) {
@@ -24,8 +26,14 @@ function App() {
 
   return (
     <div>
-      {/* <RenderNames unitArrayData={unitsArray} /> */}
-      <Form onlyRelevantUnits={onlyRelevantUnits} unitsArray={unitsArray} />
+      <button onClick={() => setShow(!show)}>
+        Load app content. It may take some time!
+      </button>
+      {show && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Form onlyRelevantUnits={onlyRelevantUnits} unitsArray={unitsArray} />
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -136,7 +136,7 @@ const ItemInput = ({ unit }) => {
                       name={`${key}-${id}-item`}
                       id={id}
                     >
-                      <option value="">Select an option</option>
+                      <option value={value}>{value}</option>
                       {itemSlotMapping[key].map((option) => (
                         <option key={option} value={option}>
                           {option}

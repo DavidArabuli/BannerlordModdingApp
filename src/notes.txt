@@ -96,3 +96,10 @@ Added skill and item flags to inputs, to pass it to the form procession function
 There must be check, that ensures that if item slot is not present it gets added, but since all of it comes from form - it might mix up with skills, and they are added instead if empty item-slots.
 
 Added Suspense and Lazy, to lazy load Form component. It will load on separate button press, only when it is needed.
+
+28.04.2024
+
+Item modification took quite a lot of time... Had to rework initial approach, created couple of filters to organize data and make loops faster.
+Made it more readable, will revisit to name better, now when it is mostly finished. 
+
+Items can be added to single roster and multiple rosters, existing items can be switched to different items. 

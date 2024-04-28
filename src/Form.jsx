@@ -6,13 +6,17 @@ import handleDownload from "./handleDownload";
 const Form = ({ onlyRelevantUnits, unitsArray }) => {
   console.log(onlyRelevantUnits);
 
+  const relevantUnitsId = onlyRelevantUnits.map((unit) => {
+    return unit._attributes.id;
+  });
+  console.log(relevantUnitsId);
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-
     const newArray = [...formData.entries()];
     console.log(newArray);
     console.log(unitsArray);
+    console.log(onlyRelevantUnits);
 
     const normalizedFormData = newArray.map((editedSkill) => {
       const unitId = editedSkill[0].split("-")[1];
@@ -23,75 +27,104 @@ const Form = ({ onlyRelevantUnits, unitsArray }) => {
     });
     console.log(normalizedFormData);
     const editedUnitsArray = unitsArray.map((unit) => {
+      if (!relevantUnitsId.includes(unit._attributes.id)) {
+        return unit;
+      }
+      // flag to distinguish between units with one equipment roster units with multiple rosters
       const arrayFlag = Array.isArray(unit.Equipments.EquipmentRoster)
         ? true
         : false;
 
-      normalizedFormData.forEach((inputData) => {
-        if (unit._attributes.id != inputData[0]) {
-          return;
-        }
-        // skill logic
-        if (inputData[2] === "skill") {
-          for (let i = 0; i < unit.skills.skill.length; i++) {
-            if (unit.skills.skill[i]._attributes.id == inputData[1]) {
-              unit.skills.skill[i]._attributes.value = inputData[3];
-            }
-          }
-          // item logic
-          if (arrayFlag) {
-            const possibleSlots = [
-              "Item0",
-              "Item1",
-              "Item2",
-              "Item3",
-              "Body",
-              "Leg",
-              "Gloves",
-              "Cape",
-              "Head",
-            ];
-            const allSkills = [
-              "Athletics",
-              "Riding",
-              "OneHanded",
-              "TwoHanded",
-              "Polearm",
-              "Bow",
-              "Crossbow",
-              "Throwing",
-            ];
-            if (
-              !possibleSlots.includes(inputData[1]) &&
-              !allSkills.includes(inputData[1])
-            ) {
-              const newEquipment = {
-                _attributes: {
-                  slot: inputData[1],
-                  id: inputData[2],
-                },
-              };
-              unit.Equipments.EquipmentRoster[0].equipment.push(newEquipment);
-            } else {
-              // Update existing equipment object
-              const equipment =
-                unit.Equipments.EquipmentRoster[0].equipment.find(
-                  (equipment) => equipment._attributes.slot === inputData[1]
-                );
-              if (equipment && inputData[2] !== "") {
-                equipment._attributes.id = inputData[2];
-              }
-            }
-          } else {
-            const equipment = unit.Equipments.EquipmentRoster.equipment.find(
-              (equipment) => equipment._attributes.slot === inputData[1]
-            );
-            if (equipment && inputData[2] !== "") {
-              equipment._attributes.id = inputData[2];
-            }
-          }
+      const relevantFormData = normalizedFormData.filter(
+        (inputData) => unit._attributes.id === inputData[0]
+      );
+
+      // ============ skill logic ============
+
+      const relevantSkillFormData = relevantFormData.filter(
+        (data) => data[2] === "skill"
+      );
+
+      relevantSkillFormData.forEach((inputData) => {
+        const skillToUpdate = unit.skills.skill.find(
+          (skill) => skill._attributes.id === inputData[1]
+        );
+        if (skillToUpdate) {
+          skillToUpdate._attributes.value = inputData[3];
         }
       });
+
+      // ============ item logic ============
+
+      const relevantItemFormData = relevantFormData.filter(
+        (data) => data[2] === "item"
+      );
+
+      if (arrayFlag) {
+        const equipmentRoster = unit.Equipments.EquipmentRoster;
+        for (let i = 0; i < equipmentRoster.length; i++) {
+          const equipment = equipmentRoster[i].equipment;
+          // to avoid overwriting we are using only a section of input data
+          const startIndex = i * 9;
+          const endIndex = startIndex + 9;
+
+          const relevantDataForEquipment = relevantItemFormData.slice(
+            startIndex,
+            endIndex
+          );
+
+          //  a set to store the slots that have already been processed and populated
+          const processedSlots = new Set();
+
+          const equipmentCopy = [...equipment];
+          for (let j = 0; j < equipmentCopy.length; j++) {
+            const attributes = equipmentCopy[j]._attributes;
+            relevantDataForEquipment.forEach((entry) => {
+              if (attributes.slot === entry[1]) {
+                attributes.id = entry[3];
+
+                processedSlots.add(entry[1]);
+              }
+            });
+          }
+
+          relevantDataForEquipment.forEach((entry) => {
+            if (!processedSlots.has(entry[1]) && entry[3] !== "") {
+              let newEquipment = {
+                _attributes: {
+                  slot: entry[1],
+                  id: entry[3],
+                },
+              };
+              equipment.push(newEquipment);
+
+              processedSlots.add(entry[1]);
+            }
+          });
+        }
+      }
+
+      if (!arrayFlag) {
+        relevantItemFormData.forEach((inputData) => {
+          let equipment = unit.Equipments.EquipmentRoster.equipment.find(
+            (equipment) => equipment._attributes.slot === inputData[1]
+          );
+
+          if (!equipment) {
+            let newEquipment = {
+              _attributes: {
+                slot: inputData[1],
+                id: inputData[3],
+              },
+            };
+            unit.Equipments.EquipmentRoster.equipment.push(newEquipment);
+          } else {
+            equipment._attributes.id =
+              inputData[3] !== "" ? inputData[3] : equipment._attributes.id;
+          }
+        });
+      }
+
       return unit;
     });
 
@@ -103,7 +136,7 @@ const Form = ({ onlyRelevantUnits, unitsArray }) => {
     };
     const xml = xmljs.js2xml(xmlData, { compact: true, spaces: 2 });
     console.log(xml);
-    handleDownload(xml);
+    // handleDownload(xml);
   };
 
   return (
@@ -115,99 +148,3 @@ const Form = ({ onlyRelevantUnits, unitsArray }) => {
 };
 
 export default Form;
-// import React, { useState } from "react";
-// import CultureBlock from "./CultureBlock";
-// import xmljs from "xml-js";
-// import handleDownload from "./handleDownload";
-
-// const Form = ({ onlyRelevantUnits, unitsArray }) => {
-//   console.log(onlyRelevantUnits);
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.currentTarget);
-
-//     const newArray = [...formData.entries()];
-//     console.log(newArray);
-//     console.log(unitsArray);
-
-//     const normalizedFormData = newArray.map((editedSkill) => {
-//       const unitId = editedSkill[0].split("-")[1];
-//       const skillName = editedSkill[0].split("-")[0];
-//       const skillValue = editedSkill[1];
-//       return [unitId, skillName, skillValue];
-//     });
-//     console.log(normalizedFormData);
-//     const editedUnitsArray = unitsArray.map((unit) => {
-//       const arrayFlag = Array.isArray(unit.Equipments.EquipmentRoster)
-//         ? true
-//         : false;
-//       normalizedFormData.forEach((inputData) => {
-//         // set flag, whether it is array or not
-
-//         if (unit._attributes.id != inputData[0]) {
-//           return;
-//         }
-//         // skill logic
-//         else {
-//           for (let i = 0; i < unit.skills.skill.length; i++) {
-//             if (unit.skills.skill[i]._attributes.id == inputData[1]) {
-//               unit.skills.skill[i]._attributes.value = inputData[2];
-//             }
-//           }
-//           // item logic
-
-//           if (arrayFlag) {
-//             const possibleSlots = [
-//               Item0,
-//               Item1,
-//               Item2,
-//               Item3,
-//               Body,
-//               Leg,
-//               Gloves,
-//               Cape,
-//               Head,
-//             ];
-//             unit.Equipments.EquipmentRoster[0].equipment.forEach(
-//               (equipment) => {
-//                 if (equipment._attributes.slot === inputData[1]) {
-//                   if (inputData[2] !== "") {
-//                     equipment._attributes.id = inputData[2];
-//                   }
-//                 }
-//               }
-//             );
-//           } else {
-//             unit.Equipments.EquipmentRoster.equipment.forEach((equipment) => {
-//               if (equipment._attributes.slot === inputData[1]) {
-//                 if (inputData[2] !== "") {
-//                   equipment._attributes.id = inputData[2];
-//                 }
-//               }
-//             });
-//           }
-//         }
-//       });
-//       return unit;
-//     });
-//     console.log(editedUnitsArray);
-//     const xmlData = {
-//       NPCCharacters: {
-//         NPCCharacter: editedUnitsArray,
-//       },
-//     };
-//     const xml = xmljs.js2xml(xmlData, { compact: true, spaces: 2 });
-//     console.log(xml);
-//     // handleDownload(xml);
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <button type="submit">submit</button>
-//       <CultureBlock onlyRelevantUnits={onlyRelevantUnits} />
-//     </form>
-//   );
-// };
-
-// export default Form;

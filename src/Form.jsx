@@ -141,7 +141,9 @@ const Form = ({ onlyRelevantUnits, unitsArray }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">submit</button>
+      <button type="submit" className="btn">
+        submit
+      </button>
       <CultureBlock onlyRelevantUnits={onlyRelevantUnits} />
     </form>
   );

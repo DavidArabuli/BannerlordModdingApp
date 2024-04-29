@@ -5,6 +5,7 @@ import leg_armors from "./itemJsons/leg_armors.json";
 import shoulder_armors from "./itemJsons/shoulder_armors.json";
 import gloves from "./itemJsons/gloves.json";
 import head_armors from "./itemJsons/head_armors.json";
+import { nanoid } from "nanoid";
 
 const ItemInput = ({ unit }) => {
   const { _attributes: { id } = {}, skills: { skill } = {} } = unit;
@@ -114,10 +115,11 @@ const ItemInput = ({ unit }) => {
 
   return (
     <div>
-      <section className="allItems">
+      <section className="allItems" key={nanoid()}>
         {forInput.map((object) => {
           return (
             <div
+              key={nanoid()}
               className="itemBlock"
               // key={object.unitId}
             >
@@ -126,19 +128,21 @@ const ItemInput = ({ unit }) => {
                 .filter(([key]) => key !== "unitId")
 
                 .map(([key, value]) => (
-                  <div key={key}>
-                    <label>
-                      Current {key}: {value} | Choose a new item:{" "}
-                    </label>
+                  <div className="selectorDiv" key={key}>
+                    <p>
+                      Current {key}: {value}
+                      {/* | Choose a new item:{" "} */}
+                    </p>
 
                     <select
+                      className="selector"
                       defaultValue={value}
                       name={`${key}-${id}-item`}
                       id={id}
                     >
                       <option value={value}>{value}</option>
                       {itemSlotMapping[key].map((option) => (
-                        <option key={option} value={option}>
+                        <option className="option" key={option} value={option}>
                           {option}
                         </option>
                       ))}
@@ -149,7 +153,9 @@ const ItemInput = ({ unit }) => {
           );
         })}
       </section>
-      <button onClick={toggleExpand}>expand</button>
+      <button className="btn" onClick={toggleExpand}>
+        Expand\Collapse
+      </button>
     </div>
   );
 };

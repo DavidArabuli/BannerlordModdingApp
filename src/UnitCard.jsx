@@ -4,9 +4,8 @@ const UnitCard = ({ unit }) => {
   const { _attributes: { id } = {}, skills: { skill } = {} } = unit;
 
   return (
-    <div>
-      <h6>Unit Card</h6>
-      <h6>{id}</h6>
+    <div className="unitCard">
+      <h4>{id}</h4>
 
       <InputSkill unit={unit} />
     </div>

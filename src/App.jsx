@@ -1,9 +1,10 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 const Form = lazy(() => import("./Form"));
-import RenderNames from "./RenderNames";
+
 // import Form from "./Form";
 import useFetchXML from "./useFetchXML";
 import "./App.css";
+import Footer from "./Footer";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -26,14 +27,20 @@ function App() {
 
   return (
     <div>
-      <button className="btn" onClick={() => setShow(!show)}>
-        Load app content. It may take some time!
-      </button>
+      {!show ? (
+        <button className="btn loadAppBtn" onClick={() => setShow(!show)}>
+          Load app content. It may take some time!
+        </button>
+      ) : (
+        ""
+      )}
+
       {show && (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="loading"></div>}>
           <Form onlyRelevantUnits={onlyRelevantUnits} unitsArray={unitsArray} />
         </Suspense>
       )}
+      <Footer />
     </div>
   );
 }

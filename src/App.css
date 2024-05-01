@@ -96,52 +96,10 @@ h5 {
   letter-spacing: var(--letterSpacing);
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 5rem); /* Large heading */
-}
-
-h2 {
-  font-size: clamp(1.5rem, 3vw, 3rem); /* Medium heading */
-}
-
-h3 {
-  font-size: clamp(1.25rem, 2.5vw, 2.5rem); /* Small heading */
-}
-
-h4 {
-  font-size: clamp(1rem, 2vw, 2rem); /* Extra small heading */
-}
-
-h5 {
-  font-size: clamp(0.875rem, 1.5vw, 1.5rem); /* Tiny heading */
-}
-
-/* BIGGER FONTS */
-/* h1 {
-  font-size: clamp(3rem, 6vw, 6rem);
-}
-
-h2 {
-  font-size: clamp(2.5rem, 5vw, 5rem);
-}
-
-h3 {
-  font-size: clamp(2rem, 4vw, 4rem);
-}
-
-h4 {
-  font-size: clamp(1.5rem, 3vw, 3rem);
-}
-
-h5 {
-  font-size: clamp(1rem, 2vw, 2rem);
-}
- */
-
-.text {
+/* .text {
   margin-bottom: 1.5rem;
   max-width: 40em;
-}
+} */
 
 small,
 .text-small {
@@ -175,6 +133,8 @@ ul {
   transition: var(--transition);
   text-transform: capitalize;
   display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .btn:hover {
   background: var(--primary-700);
@@ -266,7 +226,7 @@ ul {
   border-radius: 50%;
   border-top-color: var(--primary-500);
   animation: spinner 0.6s linear infinite;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 /* title */
@@ -274,52 +234,69 @@ ul {
 .title {
   text-align: center;
 }
-
-.title-underline {
+.unitId {
+  font-weight: 500;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+.title {
   background: var(--primary-500);
   width: 4rem;
   height: 0.25rem;
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1rem;
 }
 
 /* Modding Tool CSS */
-
+h4,
+h5 {
+  margin-top: 1rem;
+}
 .skillBox {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.2rem;
   /* justify-content: space-between; */
   align-items: center;
   align-content: center;
-}
-.allItems {
-  border: 3px dotted orange;
-  display: none;
-  max-width: 50rem;
-  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.layer {
-  position: relative;
+.allItems {
+  /* border: 3px dotted orange; */
+  display: none;
+  max-width: 50rem;
+  justify-content: center;
+  flex-direction: column;
 }
+
+/* .layer {
+  position: relative;
+} */
 .culture {
   display: none;
+  flex-direction: column;
 }
 
 .open {
   display: flex;
-  flex-direction: column;
 }
 
-.inputLabel {
+.inputBlock {
   display: flex;
   justify-content: space-between;
-  width: 20rem;
-  border: 1px solid blue;
+  width: 12rem;
+  /* border: 1px solid blue; */
+  font-size: 0.9rem;
   /* text-align: left; */
+}
+.inputBlock input {
+  width: 3rem;
 }
 
 .allUnits {
@@ -328,7 +305,8 @@ ul {
   gap: 4rem;
 }
 .itemBlock {
-  margin: 1rem;
+  margin: 0.3rem;
+  border-top: 3px solid var(--grey-900);
 }
 .selectorDiv {
   justify-content: space-between;
@@ -338,26 +316,156 @@ ul {
 }
 
 .selectorDiv p {
-  font-weight: 600;
-  padding: 0.3rem;
+  font-weight: 500;
+  padding: 0.1rem;
+  font-size: 0.7rem;
+  width: 6rem;
 }
 .selector {
-  width: 15rem;
-  margin-left: 1rem;
+  font-size: 0.7rem;
+  width: 10rem;
+  /* margin-left: 0.5rem; */
 }
-
+.selector .option {
+  width: 4rem;
+}
 .unitCard {
-  margin: 1rem;
+  /* margin: 1rem; */
   margin-top: 2rem;
-  border: 1px solid grey;
+  border: 3px solid grey;
   border-radius: 10px;
 }
 
 .unitCardInputs {
-  margin-top: 1rem;
-  border: 1px solid blue;
+  margin-top: 0.5rem;
+  /* border: 1px solid blue; */
   /* justify-content: center; */
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+  .loadAppBtn {
+    font-size: 1.5rem;
+  }
+  .unitCard {
+    margin: 1rem;
+    margin-top: 2rem;
+    border: 3px solid grey;
+    border-radius: 10px;
+  }
+  .unitCardInputs {
+    margin-top: 0.5rem;
+    /* border: 1px solid blue; */
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .skillBox {
+    margin: 1rem;
+  }
+  input {
+    font-size: large;
+  }
+  .inputBlock label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .allItems {
+    /* border: 3px dotted orange; */
+
+    max-width: 25rem;
+    justify-content: center;
+  }
+  .selector {
+    font-size: 0.9rem;
+  }
+  .culture {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .selectorDiv p {
+    font-weight: 500;
+
+    font-size: 0.9rem;
+    width: 14rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .unitCard {
+    margin: 1rem;
+    margin-top: 2rem;
+    border: 3px solid grey;
+    border-radius: 10px;
+  }
+  .unitCardInputs {
+    margin-top: 0.5rem;
+    /* border: 1px solid blue; */
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .skillBox {
+    margin: 1rem;
+  }
+  input {
+    font-size: large;
+  }
+  .inputBlock label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .allItems {
+    /* border: 3px dotted orange; */
+
+    max-width: 30rem;
+    justify-content: center;
+  }
+  .selector {
+    font-size: 1rem;
+    width: 12rem;
+  }
+  .culture {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 90vw;
+    justify-content: center;
+  }
+  .selectorDiv p {
+    font-weight: 500;
+    text-align: left;
+    font-size: 1rem;
+    width: 17rem;
+  }
+}
+
+footer {
+  margin-top: 8rem;
+  background-color: var(--primary-200);
+  height: 10rem;
+  width: 100%;
+}
+.info {
+  font-size: 1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.8rem;
+  text-align: left;
+  margin-left: 1rem;
+  height: 100%;
+}
+.info a,
+p {
+  line-height: 1.4;
+}
+
+.info p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.info a {
+  margin-bottom: 4rem;
 }

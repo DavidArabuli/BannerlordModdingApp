@@ -7,7 +7,110 @@
     <title>Vite + React</title>
   </head>
   <body>
+    <nav>
+      <div class="navbar">
+        <h3 class="pageTitle">"Mount and Blade: Bannerlord" Modding Tools</h3>
+        <div class="introInfo">
+          <p>App for modifying "Bannerlord" units` skills and items</p>
+        </div>
+      </div>
+      <button type="button" id="toggleButton" class="btn btn-hipster">
+        read introduction
+      </button>
+    </nav>
+    <main class="mainSection readMore" id="mainSection">
+      <div class="instruction">
+        <p>Using Bannerlord modding tools is extremely easy</p>
+        <br />
+
+        <p>1) Navigate to the unit you want to edit.</p>
+
+        <br />
+
+        <p>2) Enter desired values in a skill box (from 0 to 999)</p>
+        <br />
+
+        <p>
+          3) If you wish to add or replace items - choose equipment roster (some
+          units only have one roster), choose a slot appropriate to desired item
+          type, and choose new item from a dropdown menu. Proceed to another
+          slot, or to another unit.
+        </p>
+        <br />
+
+        <p>
+          4) When you are happy with your choices - click submit and download
+          button.
+        </p>
+        <br />
+
+        <p>5) This will download an XML file on your computer.</p>
+        <br />
+
+        <p>
+          6) Navigate to \Mount & Blade II Bannerlord\ Modules\SandBoxCore\
+          ModuleData, and replace existing "spnpccharacters.xml" file with file
+          produced by this app. I suggest backing up your original file, so that
+          you can revert your changes.
+        </p>
+        <br />
+
+        <p>
+          7) Navigate to \Mount & Blade II Bannerlord\ &nbsp;
+          Modules\SandBoxCore &nbsp; \ModuleData, and replace existing
+          "spnpccharacters.xml" file with file produced by this app. I suggest
+          backing up your original file, so that you can revert your changes.
+        </p>
+        <br />
+      </div>
+      <div class="instruction">
+        <h3 class="infoTitle">Things to know:</h3>
+        <br />
+        <p>
+          - The file you get is compatible with original vanilla Bannerlord.
+          <br />
+          - It was not tested with mods that heavily modify your game files.
+          <br />
+          - The XML structure of original is preserved - the only side-effect is
+          that order of file comments is messed up during conversion, but this
+          does not affect your game whatsoever.
+          <br />
+          - Item0,1,2,3 - are slots for weapons and shields.
+          <br />
+          - All other have self-explaining names.
+        </p>
+      </div>
+      <div class="instruction">
+        <h3 class="infoTitle">plans for the future:</h3>
+        <p>
+          As this purely frontend app is inherently limited by not being able to
+          access file system and by some performance limitations, I will not
+          update it with new features, instead I want to concentrate my efforts
+          on upcoming desktop version.
+          <br />
+
+          Desktop version will have advanced features, ability to make
+          consecutive edits, modify items, party templates and some more.
+        </p>
+        <p>If you want to be updated on upcoming apps - follow me on GitHub</p>
+        <a href="">123123123123</a>
+      </div>
+    </main>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      function toggleMainSection() {
+        const mainSection = document.getElementById("mainSection");
+        const toggleButton = document.getElementById("toggleButton");
+
+        toggleButton.addEventListener("click", function () {
+          mainSection.classList.toggle("readMore");
+        });
+      }
+
+      // Call the function to enable the toggle functionality
+      toggleMainSection();
+    </script>
   </body>
 </html>

@@ -103,3 +103,13 @@ Item modification took quite a lot of time... Had to rework initial approach, cr
 Made it more readable, will revisit to name better, now when it is mostly finished. 
 
 Items can be added to single roster and multiple rosters, existing items can be switched to different items. 
+
+01.05.2024
+
+Added CSS, worked on responsive design. 
+Moved "submit and download" functionality into separate module, to make Form.jsx less clattered. 
+
+***  Functionality wise I will call it a day, since atm there is no point in trying to squeeze more features into a pure frontend app, as it just might make it unwieldy and slow. Plus it does not have access to file system, so there is too much inherent limitations.
+All the other ideas will go into desktop version from now on.  ****
+
+things to do - revisit naming, check for some edge cases, limit numerical inputs 

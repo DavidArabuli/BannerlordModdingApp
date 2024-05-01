@@ -5,7 +5,8 @@ const UnitCard = ({ unit }) => {
 
   return (
     <div className="unitCard">
-      <h4>{id}</h4>
+      <h4 className="unitId">{id}</h4>
+      <div className="title"></div>
 
       <InputSkill unit={unit} />
     </div>

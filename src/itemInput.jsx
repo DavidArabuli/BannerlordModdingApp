@@ -47,19 +47,6 @@ const ItemInput = ({ unit }) => {
       unit.Equipments.EquipmentRoster.forEach((roster) => {
         const equipment = roster.equipment;
 
-        // const unitItem = {
-        //   unitId: unit._attributes.id,
-        //   Item0: "",
-        //   Item1: "",
-        //   Item2: "",
-        //   Item3: "",
-        //   Body: "",
-        //   Leg: "",
-        //   Gloves: "",
-        //   Cape: "",
-        //   Head: "",
-        // };
-
         if (Array.isArray(equipment)) {
           for (const slot in unitItem) {
             const item = equipment.find(
@@ -77,19 +64,6 @@ const ItemInput = ({ unit }) => {
     } else {
       const equipment = unit.Equipments.EquipmentRoster.equipment;
 
-      // const unitItem = {
-      //   unitId: unit._attributes.id,
-      //   Item0: "",
-      //   Item1: "",
-      //   Item2: "",
-      //   Item3: "",
-      //   Body: "",
-      //   Leg: "",
-      //   Gloves: "",
-      //   Cape: "",
-      //   Head: "",
-      // };
-
       if (Array.isArray(equipment)) {
         for (const slot in unitItem) {
           const item = equipment.find(
@@ -105,13 +79,10 @@ const ItemInput = ({ unit }) => {
       allInitialItems.push(unitItem);
     }
 
-    // console.log(allInitialItems);
     return allInitialItems;
   };
 
   const forInput = getAllDefaultItems(unit);
-  // forInput - is array of objects.
-  // console.log(forInput);
 
   return (
     <div>
@@ -127,7 +98,7 @@ const ItemInput = ({ unit }) => {
 
                 .filter(([key]) => key !== "unitId")
 
-                .map(([key, value]) => (
+                .map(([key, value], index) => (
                   <div className="selectorDiv" key={key}>
                     <p>
                       Current {key}: {value}
@@ -138,11 +109,16 @@ const ItemInput = ({ unit }) => {
                       className="selector"
                       defaultValue={value}
                       name={`${key}-${id}-item`}
-                      id={id}
+                      id={`${id}-${key}-${index}-selector`}
                     >
                       <option value={value}>{value}</option>
                       {itemSlotMapping[key].map((option) => (
-                        <option className="option" key={option} value={option}>
+                        <option
+                          className="option"
+                          key={option}
+                          value={option}
+                          id={`${option}-${id}-${index}-${key}`}
+                        >
                           {option}
                         </option>
                       ))}

@@ -12,11 +12,7 @@ const cultures = [
 
 const CultureBlock = ({ onlyRelevantUnits }) => {
   console.log(onlyRelevantUnits);
-  // const toggleExpand = (e) => {
-  //   e.preventDefault();
-  //   const section = e.target.previousElementSibling;
-  //   section.classList.toggle("open");
-  // };
+
   const toggleExpand = (e) => {
     e.preventDefault();
     const cultureBlock = e.target.nextElementSibling;

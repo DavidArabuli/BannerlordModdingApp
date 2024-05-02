@@ -1,4 +1,3 @@
-import { useRef, useState, useEffect } from "react";
 import weapons from "./itemJsons/weapons.json";
 import body_armors from "./itemJsons/body_armors.json";
 import leg_armors from "./itemJsons/leg_armors.json";

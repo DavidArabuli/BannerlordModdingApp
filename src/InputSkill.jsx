@@ -1,14 +1,8 @@
-import { useRef, useState, useEffect } from "react";
-
 import ItemInput from "./itemInput";
-import { nanoid } from "nanoid";
 
 const InputSkill = ({ unit }) => {
   const { _attributes: { id } = {}, skills: { skill } = {} } = unit;
-  // const generateUniqueId = () => {
-  //   const seed = "skills_input_seed_value";
-  //   return nanoid({ size: 10, seed });
-  // };
+
   const Athletics = skill?.[0];
   const Riding = skill?.[1];
   const OneHanded = skill?.[2];

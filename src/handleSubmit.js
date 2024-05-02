@@ -7,12 +7,13 @@ const handleSubmit = (e, unitsArray, onlyRelevantUnits, relevantUnitsId) => {
   console.log(unitsArray);
   console.log(onlyRelevantUnits);
 
-  const normalizedFormData = newArray.map((editedSkill) => {
-    const unitId = editedSkill[0].split("-")[1];
-    const skillName = editedSkill[0].split("-")[0];
-    const flag = editedSkill[0].split("-")[2];
-    const skillValue = editedSkill[1];
-    return [unitId, skillName, flag, skillValue];
+  // extracting unit`s id, skill\item slot, flag (item\skill) and provided\empty value
+  const normalizedFormData = newArray.map((input) => {
+    const unitId = input[0].split("-")[1];
+    const slot = input[0].split("-")[0];
+    const typeFlag = input[0].split("-")[2];
+    const value = input[1];
+    return [unitId, slot, typeFlag, value];
   });
   console.log(normalizedFormData);
   const editedUnitsArray = unitsArray.map((unit) => {

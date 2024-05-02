@@ -85,7 +85,7 @@ I am starting to think, that I am pushing over the limit of frontend app here, a
 23.04.202
 
 Items from all equipmentRosters are rendered and passed to the form.
-Basically, for every unit and every equipment roster it has there is an item object with properties - they are either filled with data, or go as empty string.
+Basically, for every unit and every equipment roster it has, there is an item object with properties - they are either filled with data, or go as empty string.
 
 Working on inserting item slots into equipmentRosters, when they are not there from the beginning.
 

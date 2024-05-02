@@ -241,7 +241,7 @@ ul {
   margin-top: 0.6rem;
   margin-bottom: 0.6rem;
 }
-.title {
+.titleUnderscore {
   background: var(--primary-500);
   width: 4rem;
   height: 0.25rem;

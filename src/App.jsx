@@ -1,7 +1,6 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
+import React, { useState, Suspense, lazy } from "react";
 const Form = lazy(() => import("./Form"));
 
-// import Form from "./Form";
 import useFetchXML from "./useFetchXML";
 import "./App.css";
 import Footer from "./Footer";

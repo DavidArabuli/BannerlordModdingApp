@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import CultureBlock from "./CultureBlock";
 
-import handleDownload from "./handleDownload";
 import handleSubmit from "./handleSubmit";
 
 const Form = ({ onlyRelevantUnits, unitsArray }) => {

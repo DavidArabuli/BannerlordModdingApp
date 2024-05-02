@@ -251,9 +251,6 @@ h5 {
   font-size: 0.9rem;
   /* text-align: left; */
 }
-.inputBlock input {
-  width: 3rem;
-}
 
 .allUnits {
   display: flex;
@@ -300,6 +297,9 @@ h5 {
   display: flex;
   flex-direction: column;
 }
+.inputBlock input {
+  width: 4rem;
+}
 
 @media screen and (min-width: 800px) {
   .loadAppBtn {
@@ -323,7 +323,7 @@ h5 {
     margin: 1rem;
   }
   input {
-    font-size: large;
+    font-size: 1rem;
   }
   .inputBlock label {
     font-size: 1rem;
@@ -359,7 +359,6 @@ h5 {
   }
   .unitCardInputs {
     margin-top: 0.5rem;
-    /* border: 1px solid blue; */
 
     align-items: center;
     display: flex;
@@ -368,16 +367,12 @@ h5 {
   .skillBox {
     margin: 1rem;
   }
-  input {
-    font-size: large;
-  }
+
   .inputBlock label {
     font-size: 1rem;
     font-weight: 500;
   }
   .allItems {
-    /* border: 3px dotted orange; */
-
     max-width: 30rem;
     justify-content: center;
   }

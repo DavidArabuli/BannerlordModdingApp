@@ -32,6 +32,7 @@ const InputSkill = ({ unit }) => {
               <label>{skill?._attributes?.id} :</label>
               <input
                 type="number"
+                size="10"
                 min={0}
                 max={999}
                 name={`${skill?._attributes?.id}-${id}-skill`}

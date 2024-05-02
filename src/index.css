@@ -70,6 +70,7 @@ body {
   line-height: 1;
   color: var(--textColor);
 }
+
 p {
   margin: 0;
 }
@@ -92,13 +93,12 @@ nav {
 }
 
 .mainSection {
-  background-color: var(--grey-400);
+  background-color: var(--grey-200);
   height: 100%;
   width: 100%;
   padding: 1rem;
 }
-.mainSection p {
-}
+
 .instruction {
   max-width: 50vw;
   width: 100%;

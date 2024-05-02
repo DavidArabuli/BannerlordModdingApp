@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <footer>
-      <div class="footerContainer">
-        <div class="info">
+      <div className="footerContainer">
+        <div className="info">
           <p>source code and future apps:</p>
           <a className="githubLink" href="https://github.com/DavidArabuli">
             https://github.com/DavidArabuli

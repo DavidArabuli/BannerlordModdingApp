@@ -27,7 +27,6 @@ function useFetchXML() {
     return { unitsArray, loading };
   }
 
-  console.log(unitsArray);
   return { unitsArray, loading };
 }
 

@@ -31,11 +31,14 @@ const InputSkill = ({ unit }) => {
             <div key={index} id={id} className="inputBlock">
               <label>{skill?._attributes?.id} :</label>
               <input
-                type="text"
+                type="number"
+                min={0}
+                max={999}
                 name={`${skill?._attributes?.id}-${id}-skill`}
                 defaultValue={skill?._attributes?.value}
                 id={`${skill?._attributes?.id}-${id}-${index}`}
                 dataset-id={id}
+                required
               />
             </div>
           );

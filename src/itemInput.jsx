@@ -88,11 +88,7 @@ const ItemInput = ({ unit }) => {
       <section className="allItems" key={nanoid()}>
         {forInput.map((object) => {
           return (
-            <div
-              key={nanoid()}
-              className="itemBlock"
-              // key={object.unitId}
-            >
+            <div key={nanoid()} className="itemBlock">
               {Object.entries(object)
 
                 .filter(([key]) => key !== "unitId")

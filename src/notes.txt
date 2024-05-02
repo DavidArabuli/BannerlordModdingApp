@@ -113,3 +113,11 @@ Moved "submit and download" functionality into separate module, to make Form.jsx
 All the other ideas will go into desktop version from now on.  ****
 
 things to do - revisit naming, check for some edge cases, limit numerical inputs 
+
+02.05.2024
+
+Inputs limited, CSS finalized. Some clean up done. 
+
+Game does not throw any errors, no crashes and everything seems to be ok, and unless there are some super obscure bugs, overall things work good.
+
+- Will test deployed app now.

@@ -27,7 +27,11 @@ function App() {
   return (
     <div>
       {!show ? (
-        <button className="btn loadAppBtn" onClick={() => setShow(!show)}>
+        <button
+          id="loadAppBtn"
+          className="btn loadAppBtn"
+          onClick={() => setShow(!show)}
+        >
           Load app content. It may take some time!
         </button>
       ) : (

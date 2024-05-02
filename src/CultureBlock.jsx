@@ -11,12 +11,12 @@ const cultures = [
 ];
 
 const CultureBlock = ({ onlyRelevantUnits }) => {
-  console.log(onlyRelevantUnits);
+  // console.log(onlyRelevantUnits);
 
   const toggleExpand = (e) => {
     e.preventDefault();
     const cultureBlock = e.target.nextElementSibling;
-    console.log(cultureBlock);
+
     cultureBlock.classList.toggle("open");
   };
   return (
@@ -24,7 +24,7 @@ const CultureBlock = ({ onlyRelevantUnits }) => {
       {cultures.map((culture, index) => (
         <div key={index} className="layer">
           <button className="btn" onClick={toggleExpand}>
-            See all {culture} units
+            See {culture} units
           </button>
           <div key={culture} className={`${culture} culture`}>
             {onlyRelevantUnits.map((unit) => {

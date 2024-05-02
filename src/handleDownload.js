@@ -6,7 +6,7 @@ const handleDownload = (xmlData) => {
   // Create a download link
   const link = document.createElement("a");
   link.href = url;
-  link.download = "EDITEDspnpccharacters.xml";
+  link.download = "spnpccharacters.xml";
   link.click();
 
   // Clean up

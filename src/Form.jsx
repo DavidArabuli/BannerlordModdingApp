@@ -3,12 +3,9 @@ import CultureBlock from "./CultureBlock";
 import handleSubmit from "./handleSubmit";
 
 const Form = ({ onlyRelevantUnits, unitsArray }) => {
-  console.log(onlyRelevantUnits);
-
   const relevantUnitsId = onlyRelevantUnits.map((unit) => {
     return unit._attributes.id;
   });
-  console.log(relevantUnitsId);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -18,7 +15,7 @@ const Form = ({ onlyRelevantUnits, unitsArray }) => {
   return (
     <form onSubmit={handleSubmitForm}>
       <button type="submit" className="btn btn-hipster">
-        submit
+        submit changes and download XML file
       </button>
       <CultureBlock onlyRelevantUnits={onlyRelevantUnits} />
     </form>

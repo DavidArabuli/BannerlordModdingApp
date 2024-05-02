@@ -1,13 +1,11 @@
 import xmljs from "xml-js";
+import handleDownload from "./handleDownload";
+
 const handleSubmit = (e, unitsArray, onlyRelevantUnits, relevantUnitsId) => {
-  //   e.preventDefault();
   const formData = new FormData(e.currentTarget);
   const newArray = [...formData.entries()];
-  console.log(newArray);
-  console.log(unitsArray);
-  console.log(onlyRelevantUnits);
 
-  // extracting unit`s id, skill\item slot, flag (item\skill) and provided\empty value
+  // extracting unit`s id, skill\item slot, flag (whether it is an item or a skill) and provided\empty value
   const normalizedFormData = newArray.map((input) => {
     const unitId = input[0].split("-")[1];
     const slot = input[0].split("-")[0];
@@ -15,7 +13,7 @@ const handleSubmit = (e, unitsArray, onlyRelevantUnits, relevantUnitsId) => {
     const value = input[1];
     return [unitId, slot, typeFlag, value];
   });
-  console.log(normalizedFormData);
+
   const editedUnitsArray = unitsArray.map((unit) => {
     if (!relevantUnitsId.includes(unit._attributes.id)) {
       return unit;
@@ -54,7 +52,7 @@ const handleSubmit = (e, unitsArray, onlyRelevantUnits, relevantUnitsId) => {
       const equipmentRoster = unit.Equipments.EquipmentRoster;
       for (let i = 0; i < equipmentRoster.length; i++) {
         const equipment = equipmentRoster[i].equipment;
-        // to avoid overwriting we are using only a section of input data
+        // to avoid overwriting we are using only a section of input data here
         const startIndex = i * 9;
         const endIndex = startIndex + 9;
 
@@ -118,15 +116,14 @@ const handleSubmit = (e, unitsArray, onlyRelevantUnits, relevantUnitsId) => {
     return unit;
   });
 
-  console.log(editedUnitsArray);
   const xmlData = {
     NPCCharacters: {
       NPCCharacter: editedUnitsArray,
     },
   };
   const xml = xmljs.js2xml(xmlData, { compact: true, spaces: 2 });
-  console.log(xml);
-  // handleDownload(xml);
+
+  handleDownload(xml);
 };
 
 export default handleSubmit;

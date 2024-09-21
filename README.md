@@ -7,7 +7,8 @@ App allows you to modify unit`s skills and equipment (add or replace items) and 
 
 Modding "MB:Bannerlord" manually is a very tiresome and tedious process, and it is very easy to make critical mistakes, and modding multiple units in one go is an extremely annoying undertaking. 
 This app solves that problem for modders\players, and offers easy to use, easy to understand interface, with all capabilities you might need.
- **Requires no knowledge of "MB2:B" modding!**
+
+**Requires no knowledge of "MB2:B" modding!**
 Even if you are an absolute beginner, you can use it easily.
 
 **Currently it is online and is hosted here:**

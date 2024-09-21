@@ -27,6 +27,9 @@ Even if you are an absolute beginner, you can use it easily.
 > [!IMPORTANT]
 > I suggest backing up your original file, so that you can revert your changes.
 
+![MBBAppScreen](https://github.com/user-attachments/assets/75ad57c4-80bd-42dd-91ba-c3c636c43cbb)
+
+
 **Things To Know:**
 
 - The file you get is fully compatible with original vanilla MB2:Bannerlord.
@@ -36,4 +39,5 @@ Even if you are an absolute beginner, you can use it easily.
 - The only side-effect is that during conversion, "comments" from the original file are lost, but this does not affect your game whatsoever.
 - Item0,1,2,3 - are slots for weapons and shields.
 - All other slots have self-explaining names.
+
 

@@ -1,12 +1,13 @@
 
 ![MBB](https://github.com/user-attachments/assets/4eb4e5ff-71f0-483b-9b69-c8a97e6cf29e)
 
-**"Mount and Blade II: Bannerlord" modding web app.**
+**"Mount and Blade II: Bannerlord" modding web app for PC.**
 
 App allows you to modify unit`s skills and equipment (add or replace items) and generates ready to use XML file, which you can use to replace original game file.
 
 Modding "MB:Bannerlord" manually is a very tiresome and tedious process, and it is very easy to make critical mistakes, and modding multiple units in one go is an extremely annoying undertaking. 
-This app solves that problem for modders\players, and offers easy to use, easy to understand interface, with all capabilities you might need, and **requires no knowledge of modding "MB2:B"!**
+This app solves that problem for modders\players, and offers easy to use, easy to understand interface, with all capabilities you might need.
+ **Requires no knowledge of "MB2:B" modding!**
 Even if you are an absolute beginner, you can use it easily.
 
 **Currently it is online and is hosted here:**

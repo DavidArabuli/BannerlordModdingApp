@@ -27,7 +27,7 @@ Even if you are an absolute beginner, you can use it easily.
 > [!IMPORTANT]
 > I suggest backing up your original file, so that you can revert your changes.
 
-![MBBAppScreen](https://github.com/user-attachments/assets/75ad57c4-80bd-42dd-91ba-c3c636c43cbb)
+<kbd> ![MBBAppScreen](https://github.com/user-attachments/assets/75ad57c4-80bd-42dd-91ba-c3c636c43cbb)  </kbd>
 
 
 **Things To Know:**
